@@ -17,7 +17,7 @@ export const todoReducer = (state, action) => {
           todo.id === action.payload ? {...todo, done: !todo.done} : todo
       ) ;
     case REMOVE:
-      return state.filter((todo) => todo.id = action.payload)
+      return state.filter((todo) => todo.id !== action.payload)
   }
 
   return state;
