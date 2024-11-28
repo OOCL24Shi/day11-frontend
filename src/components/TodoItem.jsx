@@ -20,3 +20,5 @@ const TodoItem = ({todo}) => {
         </div>
     );
 }
+
+export default TodoItem;
