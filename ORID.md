@@ -1,7 +1,7 @@
-**Objective:** Today, we explored the React state lifecycle and delved into advanced hooks like `useContext` and `useReducer`. These concepts were practiced to understand managing complex state and providing context across components.
+**Objective:** Today, we practiced using React to interact with APIs, focusing on `GET`, `PUT`, `POST`, and `DELETE` operations. Additionally, we explored a UI component library to build consistent and visually appealing user interfaces.
 
-**Reflective:** enlightening
+**Reflective:** practical
 
-**Interpretive:** The session highlighted the power of `useContext` for simplifying prop drilling and `useReducer` for handling intricate state logic. Understanding the React state lifecycle clarified how components behave and update, making the concepts more practical for real-world applications.
+**Interpretive:** Working with React for API calls reinforced the importance of proper state management and error handling in dynamic applications. Learning to use a UI component library demonstrated how pre-designed components can speed up development and maintain design consistency.
 
-**Decision:** I plan to integrate `useContext` and `useReducer` in future projects to manage state more effectively and further explore the React lifecycle to optimize component behavior.
+**Decision:** I plan to refine my API integration skills by implementing advanced use cases and experiment with customizing UI components to better align with project requirements.
