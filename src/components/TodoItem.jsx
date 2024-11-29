@@ -1,6 +1,6 @@
 import {TodoListContext} from "../context/TodoListContext";
 import {useContext, useState} from "react";
-import {REMOVE, TOGGLE,EDIT} from "../context/todoReducer";
+import {REMOVE, TOGGLE, EDIT} from "../context/todoReducer";
 import "./TodoItem.css";
 import {deleteTodo, editTodo, toggleTodo} from "../api/todo";
 import {Modal, Input} from "antd";
@@ -13,7 +13,7 @@ const TodoItem = ({todo}) => {
 
     const handleToggle = () => {
 
-        const toggleMsg = toggleTodo({id: todo.id,done: !todo.done});
+        const toggleMsg = toggleTodo({id: todo.id, done: !todo.done});
         dispatch({type: TOGGLE, payload: todo.id});
     };
 
@@ -31,8 +31,8 @@ const TodoItem = ({todo}) => {
         if (!tempText || !tempText.trim() || tempText === todo.text) {
             return;
         }
-        const editMsg = editTodo({id: todo.id,text: tempText});
-        dispatch({ type: EDIT, payload: { id: todo.id, text: tempText } }); // Save changes
+        const editMsg = editTodo({id: todo.id, text: tempText});
+        dispatch({type: EDIT, payload: {id: todo.id, text: tempText}}); // Save changes
         setIsModalVisible(false);
     };
 

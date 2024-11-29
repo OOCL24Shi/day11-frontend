@@ -7,7 +7,7 @@ import {useContext} from "react";
 import {TodoContext} from "../App";
 import getTodoList from "../api/todo";
 import {TodoListContext} from "../context/TodoListContext";
-import {Spin,Pagination} from "antd";
+import {Spin, Pagination} from "antd";
 
 
 const TodoList = () => {
@@ -40,22 +40,22 @@ const TodoList = () => {
 
     return loading ? (
 
-                <Spin size="large"/>
+            <Spin size="large"/>
         )
         :
         (
             <div className="todo-list-container">
                 <h2 className="todo-list-heading">TodoList</h2>
-                <TodoGroup state={paginatedTodos}/>
                 <TodoGenerator/>
+                <TodoGroup state={paginatedTodos}/>
                 <br/>
-                    <Pagination
-                        current={currentPage}
-                        pageSize={pageSize}
-                        total={state.length}
-                        onChange={handlePageChange}
-                        showSizeChanger
-                    />
+                <Pagination
+                    current={currentPage}
+                    pageSize={pageSize}
+                    total={state.length}
+                    onChange={handlePageChange}
+                    showSizeChanger
+                />
             </div>
         );
 }

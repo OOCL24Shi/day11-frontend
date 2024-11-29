@@ -25,7 +25,7 @@ const TodoGenerator = () => {
 
     return (
         <div className="todo-generator">
-            <input className = "todo-input" maxLength={100} value={text} onChange={handleInput}/>
+            <input className="todo-input" maxLength={100} value={text} onChange={handleInput}/>
             <button className="add-button" onClick={addItem}>add</button>
         </div>
     );
