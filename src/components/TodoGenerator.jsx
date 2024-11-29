@@ -15,6 +15,7 @@ const TodoGenerator = () => {
         if (text.trim()) {
             dispatch({type: ADD, payload: text});
         }
+        setText("")
     }
 
     return (
