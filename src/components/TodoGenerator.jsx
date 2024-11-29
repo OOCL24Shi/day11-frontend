@@ -2,6 +2,7 @@ import {useContext, useState} from "react";
 import {TodoListContext} from "../context/TodoListContext";
 import {ADD} from "../context/todoReducer";
 import "./TodoGenerator.css";
+import {addTodo} from "../api/todo";
 
 const TodoGenerator = () => {
     const [text, setText] = useState("")
@@ -11,12 +12,16 @@ const TodoGenerator = () => {
         setText(event.target.value)
     }
 
-    const addItem = () => {
+    const addItem = async () => {
         if (text.trim()) {
-            dispatch({type: ADD, payload: text});
+            const newTodo = {text: text, done: false}
+            const addedTodo = await addTodo(newTodo);
+            console.log(addedTodo);
+            dispatch({type: ADD, payload: newTodo});
         }
         setText("")
     }
+
 
     return (
         <div className="todo-generator">
