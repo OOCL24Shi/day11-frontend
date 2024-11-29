@@ -7,13 +7,22 @@ import {useContext} from "react";
 import {TodoContext} from "../App";
 import getTodoList from "../api/todo";
 import {TodoListContext} from "../context/TodoListContext";
-import {Spin} from "antd";
+import {Spin,Pagination} from "antd";
 
 
 const TodoList = () => {
 
-    const {dispatch} = useContext(TodoListContext)
+    const {state, dispatch} = useContext(TodoListContext)
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1); // Current page state
+    const [pageSize, setPageSize] = useState(10);
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginatedTodos = state.slice(startIndex, endIndex);
+
+    const onShowSizeChange = (current, pageSize) => {
+        console.log(current, pageSize);
+    };
 
     useEffect(() => {
         getTodoList().then((todo) => {
@@ -23,6 +32,12 @@ const TodoList = () => {
         });
     }, []);
 
+    const handlePageChange = (page, pageSize) => {
+        setCurrentPage(page);
+        setPageSize(pageSize);
+    };
+
+
     return loading ? (
 
                 <Spin size="large"/>
@@ -31,8 +46,16 @@ const TodoList = () => {
         (
             <div className="todo-list-container">
                 <h2 className="todo-list-heading">TodoList</h2>
-                <TodoGroup/>
+                <TodoGroup state={paginatedTodos}/>
                 <TodoGenerator/>
+                <br/>
+                    <Pagination
+                        current={currentPage}
+                        pageSize={pageSize}
+                        total={state.length}
+                        onChange={handlePageChange}
+                        showSizeChanger
+                    />
             </div>
         );
 }
