@@ -1,9 +1,7 @@
-import {useContext} from "react";
-import {TodoListContext} from "../context/TodoListContext";
 import TodoItem from "./TodoItem";
 
 const TodoGroup = ({state}) => {
-    // const {state} = useContext(TodoListContext)
+
     return (
         <div>
             {state.map((todo) => {
