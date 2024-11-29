@@ -2,12 +2,15 @@ import {TodoListContext} from "../context/TodoListContext";
 import {useContext}  from "react";
 import {REMOVE, TOGGLE} from "../context/todoReducer";
 import "./TodoItem.css";
-import {deleteTodo} from "../api/todo";
+import {deleteTodo,toggleTodo} from "../api/todo";
+
 
 const TodoItem = ({todo}) => {
     const {dispatch} = useContext(TodoListContext);
 
     const handleToggle = () => {
+
+        const toggleMsg = toggleTodo({id: todo.id,done: !todo.done});
         dispatch({type: TOGGLE, payload: todo.id});
     };
 

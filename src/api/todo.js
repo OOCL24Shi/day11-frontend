@@ -21,5 +21,9 @@ export const deleteTodo = async (id) =>{
     return response.data
 }
 
+export const toggleTodo = async (data) =>{
+    const response = await instance.put('/todo/'+data.id,data);
+    return response.data
+}
 
 export default getTodoList
