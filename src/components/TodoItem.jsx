@@ -2,6 +2,7 @@ import {TodoListContext} from "../context/TodoListContext";
 import {useContext}  from "react";
 import {REMOVE, TOGGLE} from "../context/todoReducer";
 import "./TodoItem.css";
+import {deleteTodo} from "../api/todo";
 
 const TodoItem = ({todo}) => {
     const {dispatch} = useContext(TodoListContext);
@@ -11,6 +12,7 @@ const TodoItem = ({todo}) => {
     };
 
     const handleRemove = () => {
+        const deleteMsg = deleteTodo(todo.id);
         dispatch({type: REMOVE, payload: todo.id});
     };
 

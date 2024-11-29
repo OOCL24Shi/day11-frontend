@@ -16,5 +16,10 @@ export const addTodo = async (data)=>{
     return response.data
 }
 
+export const deleteTodo = async (id) =>{
+    const response = await instance.delete('/todo/'+id);
+    return response.data
+}
+
 
 export default getTodoList
