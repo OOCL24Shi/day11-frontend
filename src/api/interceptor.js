@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
     baseURL:"https://67495c19868020296630a7cd.mockapi.io/api/v1/",
-    timeout:100000
+    timeout:50000
 });
 
 instance.interceptors.request.use(
@@ -33,6 +33,9 @@ instance.interceptors.response.use (
     (error) => {
         if (error.response && error.response.status === 404) {
             window.location.href="*"
+        }
+        if (error.response && error.response.status === 500) {
+            window.location.href = "/hard-stop"
         }
         console.error("Response Error", error);
         return Promise.reject(error)

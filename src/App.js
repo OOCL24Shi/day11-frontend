@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Link, Navigate, Route, Routes} from "react-rout
 import PageNotFound from "./components/PageNotFound"
 import DoneList from "./components/DoneList";
 import Help from "./components/Help";
+import HardStop from "./components/HardStop";
 
 export const TodoContext = createContext();
 
@@ -25,6 +26,7 @@ function App() {
                         <Route path={"/todo-list"} element={<TodoList/>}></Route>
                         <Route path={"/donelist"} element = {<DoneList/>}></Route>
                         <Route path={"/help"} element={<Help/>}></Route>
+                        <Route path={"/hard-stop"} element={<HardStop/>}></Route>
                         <Route path={"*"} element={<PageNotFound/>}></Route>
                     </Routes>
                 </Router>
